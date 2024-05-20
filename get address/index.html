@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>AJAX/PHP/CURL/JSON Example</title>
+    <meta name="description" content="AJAX/PHP/CURL/JSON example">
+    <meta name="author" content="Paddy Evans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+        #divResults {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        select, button, input {
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        tr:last-child td {
+            border-bottom: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Find Nearest Address</h1>
+    <div>
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" placeholder="Enter Latitude">
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" placeholder="Enter Longitude">
+        <button id="btnRun">Run</button>
+    </div>
+    <div id="divResults">
+        <h2>Results</h2>
+        <table>
+            <tr>
+                <td align="right">Street:</td>
+                <td id="txtStreet"></td>
+            </tr>
+            <tr>
+                <td align="right">Admin Area:</td>
+                <td id="txtAdminArea"></td>
+            </tr>
+            <tr>
+                <td align="right">Country:</td>
+                <td id="txtCountry"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#btnRun').click(function() {
+                var lat = $('#lat').val();
+                var lng = $('#lng').val();
+
+                $.ajax({
+                    url: 'http://localhost:8000/get_address.php', // Ensure this matches your server address
+                    method: 'POST',
+                    data: {
+                        lat: lat,
+                        lng: lng
+                    },
+                    success: function(response) {
+                        if (response.address) {
+                            $('#txtStreet').text(response.address.street || 'N/A');
+                            $('#txtAdminArea').text(response.address.adminName1 || 'N/A');
+                            $('#txtCountry').text(response.address.countryCode || 'N/A');
+                        } else {
+                            alert('No address found');
+                        }
+                    },
+                    error: function(error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
