@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Find_Your_Time_zone</title>
+    <meta name="description" content="AJAX/PHP/CURL/JSON example">
+    <meta name="author" content="Paddy Evans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link rel="stylesheet" href="libs/css/find_time_zone.css">
+    <link rel="stylesheet" href="libs/css/nav.css">
+</head>
+<body>
+    <h1>Find Your Time zone</h1>
+    <div>
+        <label for="lat">Latitude:</label>
+        <input type="text" id="lat" placeholder="Enter Latitude">
+        <label for="lng">Longitude:</label>
+        <input type="text" id="lng" placeholder="Enter Longitude">
+        <button id="btnRun">Run</button>
+    </div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">find time zone</a></li>
+            <li><a href="Find_Near_By_Weather.html">Find the Weather</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div id="divResults">
+        <h2>Results</h2>
+        <table>
+            <tr>
+                <td align="right">Time and Date:</td>
+                <td id="txtStreet"></td>
+            </tr>
+            <tr>
+                <td align="right">Country:</td>
+                <td id="txtAdminArea"></td>
+            </tr>          
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="libs/js/find_time_zone.js"></script>
+   
+   
+</body>
+</html>
