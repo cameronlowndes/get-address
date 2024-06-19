@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Places Finder</title>
+    <link rel="stylesheet" href="libs/css/Find_Nearby_Place_Name.css">
+    <link rel="stylesheet" href="libs/css/nav.css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">find time zone</a></li>
+            <li><a href="Find_Near_By_Weather.html">Find the Weather</a></li>
+            <li><a href="Find_Nearby_Place_Name.html">Find Nearby Place Name</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <h1>Nearby Places Finder</h1>
+        <form id="locationForm">
+            <label for="latitude">Latitude:</label>
+            <input type="text" id="latitude" name="latitude" required>
+            <label for="longitude">Longitude:</label>
+            <input type="text" id="longitude" name="longitude" required>
+            <button id="btnRun">Find Places</button>
+        </form>
+        <ul id="placeList"></ul>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="libs/js/find_nearby_place_name.js"></script> <!-- Ensure this path is correct -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+{
+  "code": "200",
+  "name": "ok",
+  "description": "success",
+  "returnedIn": "81 ms",
+  "data": {
+      "weatherObservation": {
+          "elevation": 5,
+          "lng": 0.05,
+          "observation": "EGLC 181120Z AUTO 01005KT 290V090 9999 SCT037 20/10 Q1013",
+          "ICAO": "EGLC",
+          "clouds": "scattered clouds",
+          "dewPoint": "10",
+          "cloudsCode": "SCT",
+          "datetime": "2024-06-18 11:20:00",
+          "countryCode": "GB",
+          "temperature": "20",
+          "humidity": 52,
+          "stationName": "London City Airport",
+          "weatherCondition": "n/a",
+          "windDirection": 10,
+          "hectoPascAltimeter": 1013,
+          "windSpeed": "05",
+          "lat": 51.5
+      }
+  }
+}
